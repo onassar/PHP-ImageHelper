@@ -2,7 +2,7 @@
 
     // dependecy checks
     if (!in_array('fileinfo', get_loaded_extensions())) {
-        throw new Exception('MySQL extension needs to be installed.');
+        throw new Exception('Fileinfo extension needs to be installed.');
     }
 
     /**
