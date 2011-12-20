@@ -4,8 +4,9 @@
     require_once 'ImagickResizer.class.php';
 
     /**
-     * PNGResizer class.
+     * PNGResizer
      * 
+     * @author  Oliver Nassar <onassar@gmail.com>
      * @extends ImagickResizer
      */
     class PNGResizer extends ImagickResizer
@@ -23,5 +24,3 @@
             parent::__construct($image, $blob);
         }
     }
-
-?>

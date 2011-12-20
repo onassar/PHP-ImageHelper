@@ -1,8 +1,10 @@
 <?php
 
     /**
-     * ImageResizer class.
+     * ImageResizer
      * 
+     * @author Oliver Nassar <onassar@gmail.com>
+     * @notes  Image library independent
      */
     class ImageResizer
     {
@@ -42,5 +44,3 @@
             }
         }
     }
-
-?>

@@ -4,8 +4,9 @@
     require_once 'ImagickCropper.class.php';
 
     /**
-     * PNGCropper class.
+     * PNGCropper
      * 
+     * @author  Oliver Nassar <onassar@gmail.com>
      * @extends ImagickCropper
      */
     class PNGCropper extends ImagickCropper
@@ -23,5 +24,3 @@
             parent::__construct($image, $blob);
         }
     }
-
-?>

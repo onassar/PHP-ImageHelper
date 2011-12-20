@@ -1,8 +1,24 @@
 <?php
 
+    // dependecy checks
+    if (!in_array('fileinfo', get_loaded_extensions())) {
+        throw new Exception('MySQL extension needs to be installed.');
+    }
+
     /**
-     * Image class.
+     * Image
      * 
+     * Acts as a wrapper for file-type-independent image resizing and squaring.
+     * 
+     * @author  Oliver Nassar <onassar@gmail.com>
+     * @example
+     * <code>
+     *     require_once APP . '/vendors/PHP-ImageHelper/Image.class.php';
+     *     $image = (new Image(APP . '/webroot/kittens.jpg'));
+     *     header('Content-Type: image/jpeg');
+     *     echo $image->square(100);
+     *     exit(0);
+     * </code>
      */
     class Image
     {
@@ -90,7 +106,7 @@
                 throw new Exception(
                     'Invalid image type being processed. Image *' .
                     $this->_path . '* is of type *' . ($type) . '* and must ' .
-                    'be one of the following: ' . implode(',', $keys)
+                    'be one of the following: ' . implode(', ', $keys)
                 );
             }
 
@@ -112,7 +128,8 @@
         }
 
         /**
-         * resize function.
+         * resize function. Resizes the instantiated image to have a maximum
+         *     width/height as passed.
          * 
          * @access public
          * @param int $max
@@ -124,7 +141,9 @@
         }
 
         /**
-         * square function.
+         * square function. Crops the instantiated image to have either a width
+         *     or height (whichever is smaller) to have a value of <$pixels>.
+         *     The opposite dimension is scaled and cropped appropriately.
          * 
          * @access public
          * @param int $pixels
@@ -135,5 +154,3 @@
             return $this->_resource->square($pixels);
         }
     }
-
-?>

@@ -1,11 +1,17 @@
 <?php
 
+    // dependecy check
+    if (!in_array('imagick', get_loaded_extensions())) {
+        throw new Exception('Imagick extension needs to be installed.');
+    }
+
     // load dependency
     require_once 'ImageResizer.class.php';
 
     /**
-     * ImagickResizer class.
+     * ImagickResizer
      * 
+     * @author  Oliver Nassar <onassar@gmail.com>
      * @extends ImageResizer
      */
     class ImagickResizer extends ImageResizer
@@ -116,5 +122,3 @@
             return $this->_cropper->square($pixels);
         }
     }
-
-?>

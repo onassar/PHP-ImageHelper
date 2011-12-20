@@ -1,10 +1,13 @@
 <?php
 
     /**
-     * ImageCropper class. Provides general methods for calculating how to
-     *     square an image (eg. coordinates-system).
+     * ImageCropper
      * 
-     * @note Image library indepdent
+     * Provides general methods for calculating how to square an image (eg.
+     * coordinates-system).
+     * 
+     * @author Oliver Nassar <onassar@gmail.com>
+     * @notes  Image library independent
      */
     class ImageCropper
     {
@@ -75,5 +78,3 @@
             );
         }
     }
-
-?>

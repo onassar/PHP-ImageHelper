@@ -1,12 +1,19 @@
 <?php
 
+    // dependecy check
+    if (!in_array('imagick', get_loaded_extensions())) {
+        throw new Exception('Imagick extension needs to be installed.');
+    }
+
     // load dependency
     require_once 'ImageCropper.class.php';
 
     /**
-     * ImagickCropper class. Provides Imagick-specific code to crop/square an
-     *     image.
+     * ImagickCropper
      * 
+     * Provides Imagick-specific code to crop/square an image.
+     * 
+     * @author  Oliver Nassar <onassar@gmail.com>
      * @extends ImageCropper
      */
     class ImagickCropper extends ImageCropper
@@ -104,5 +111,3 @@
             );
         }
     }
-
-?>
