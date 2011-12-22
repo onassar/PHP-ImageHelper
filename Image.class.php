@@ -51,6 +51,14 @@
         protected $_resource;
 
         /**
+         * _type
+         * 
+         * @var string
+         * @access protected
+         */
+        protected $_type;
+
+        /**
          * __construct function.
          * 
          * @access public
@@ -88,7 +96,8 @@
         protected function _getFileType()
         {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
-            return finfo_file($finfo, $this->_path);
+            $this->_type = finfo_file($finfo, $this->_path);
+            return $this->_type;
         }
 
         /**
@@ -125,6 +134,17 @@
         public function getResizer()
         {
             return $this->_resource;
+        }
+
+        /**
+         * getType function.
+         * 
+         * @access public
+         * @return string
+         */
+        public function getType()
+        {
+            return $this->_type;
         }
 
         /**
