@@ -17,11 +17,11 @@
     class ImagickResizer extends ImageResizer
     {
         /**
-         * __construct function.
+         * __construct
          * 
          * @access public
-         * @param string $image path to file or image contents (aka. blob)
-         * @param bool $blob
+         * @param  string $image path to file or image contents (aka. blob)
+         * @param  boolean $blob
          * @return void
          */
         public function __construct($image, $blob)
@@ -36,7 +36,7 @@
         }
 
         /**
-         * __destruct function.
+         * __destruct
          * 
          * @access public
          * @return void
@@ -50,8 +50,9 @@
         }
 
         /**
-         * getCropper function. Returns the cropper (if any) used to square an
-         *     image
+         * getCropper
+         * 
+         * Returns the cropper (if any) used to square an image.
          * 
          * @access public
          * @return ImagickCropper
@@ -62,7 +63,7 @@
         }
 
         /**
-         * getResource function.
+         * getResource
          * 
          * @access public
          * @return Imagick
@@ -73,11 +74,12 @@
         }
 
         /**
-         * resize function. Resizes an image to be a maximum number of pixels
-         *     wide/high.
+         * resize
+         * 
+         * Resizes an image to be a maximum number of pixels wide/high.
          * 
          * @access public
-         * @param int $max
+         * @param  integer $max
          * @return string
          */
         public function resize($max)
@@ -89,12 +91,14 @@
         }
 
         /**
-         * square function. Produces a square image that is resized to be a
-         *     maximum width/height and is a certain number of pixels wide/high.
+         * square
          * 
-         * @note resizes local methods to resize image before cropping it
+         * Produces a square image that is resized to be a maximum width/height
+         * and is a certain number of pixels wide/high.
+         * 
+         * @notes  resizes local methods to resize image before cropping it
          * @access public
-         * @param int $pixels
+         * @param  integer $pixels
          * @return string
          */
         public function square($pixels)

@@ -19,11 +19,11 @@
     class ImagickCropper extends ImageCropper
     {
         /**
-         * __construct function.
+         * __construct
          * 
          * @access public
-         * @param string $image path to file or image contents (aka. blob)
-         * @param bool $blob
+         * @param  string $image path to file or image contents (aka. blob)
+         * @param  boolean $blob
          * @return void
          */
         public function __construct($image, $blob)
@@ -38,7 +38,7 @@
         }
 
         /**
-         * __destruct function.
+         * __destruct
          * 
          * @access public
          * @return void
@@ -49,13 +49,13 @@
         }
 
         /**
-         * crop function.
+         * crop
          * 
          * @access public
-         * @param int $width
-         * @param int $height
-         * @param int $x. (default: 0)
-         * @param int $y. (default: 0)
+         * @param  integer $width
+         * @param  integer $height
+         * @param  integer $x. (default: 0)
+         * @param  integer $y. (default: 0)
          * @return string
          */
         public function crop($width, $height, $x = 0, $y = 0)
@@ -65,7 +65,7 @@
         }
 
         /**
-         * getResource function.
+         * getResource
          * 
          * @access public
          * @return Imagick
@@ -76,10 +76,10 @@
         }
 
         /**
-         * square function.
+         * square
          * 
          * @access public
-         * @param int $pixels
+         * @param  integer $pixels
          * @return string
          */
         public function square($pixels)

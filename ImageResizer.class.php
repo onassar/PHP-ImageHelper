@@ -11,7 +11,7 @@
         /**
          * cropper
          * 
-         * @var ImagickCropper
+         * @var    ImagickCropper
          * @access protected
          */
         protected $_cropper;
@@ -19,17 +19,17 @@
         /**
          * resource
          * 
-         * @var resource
+         * @var    resource
          * @access protected
          */
         protected $_resource;
 
         /**
-         * __construct function.
+         * __construct
          * 
          * @access public
-         * @param string $image
-         * @param bool $blob
+         * @param  string $image
+         * @param  boolean $blob
          * @return void
          */
         public function __construct($image, $blob)

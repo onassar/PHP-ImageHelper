@@ -12,11 +12,11 @@
     class JPEGResizer extends ImagickResizer
     {
         /**
-         * __construct function.
+         * __construct
          * 
          * @access public
-         * @param string $image path to file or image contents (aka. blob)
-         * @param bool $blob. (default: false)
+         * @param  string $image path to file or image contents (aka. blob)
+         * @param  boolean $blob. (default: false)
          * @return void
          */
         public function __construct($image, $blob = false)

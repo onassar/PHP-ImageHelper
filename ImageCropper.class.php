@@ -14,17 +14,17 @@
         /**
          * resource
          * 
-         * @var resource
+         * @var    resource
          * @access protected
          */
         protected $_resource;
 
         /**
-         * __construct function.
+         * __construct
          * 
          * @access public
-         * @param string $image path to file or image contents (aka. blob)
-         * @param bool $blob
+         * @param  string $image path to file or image contents (aka. blob)
+         * @param  boolean $blob
          * @return void
          */
         public function __construct($image, $blob)
@@ -40,13 +40,14 @@
         }
 
         /**
-         * getSquareCoordinates function. Returns the x and y coordinates to be
-         *     used to square an image
+         * getSquareCoordinates
+         * 
+         * Returns the x and y coordinates to be used to square an image.
          * 
          * @access protected
-         * @param int|float $width
-         * @param int|float $height
-         * @param int $pixels
+         * @param  integer|float $width
+         * @param  integer|float $height
+         * @param  integer|float $pixels
          * @return array
          */
         protected function getSquareCoordinates($width, $height, $pixels)
@@ -60,14 +61,15 @@
         }
 
         /**
-         * getSquarePixels function. Determines the pixels for a square crop
-         *     by determining whether the passed in pixels or the image are
-         *     smaller
+         * getSquarePixels
+         * 
+         * Determines the pixels for a square crop by determining whether the
+         * passed in pixels or the image are smaller.
          * 
          * @access protected
-         * @param int $pixels
-         * @param array $dimensions
-         * @return int
+         * @param  integer $pixels
+         * @param  array $dimensions
+         * @return integer
          */
         protected function getSquarePixels($pixels, array $dimensions)
         {

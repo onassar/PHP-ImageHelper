@@ -13,8 +13,13 @@
      * @author  Oliver Nassar <onassar@gmail.com>
      * @example
      * <code>
+     *     // library inclusion
      *     require_once APP . '/vendors/PHP-ImageHelper/Image.class.php';
+     * 
+     *     // instantiation with image path
      *     $image = (new Image(APP . '/webroot/kittens.jpg'));
+     * 
+     *     // header definiton; squaring of image output
      *     header('Content-Type: image/jpeg');
      *     echo $image->square(100);
      *     exit(0);
@@ -25,7 +30,7 @@
         /**
          * _map
          * 
-         * @var array
+         * @var    array
          * @access protected
          */
         protected $_map = array(
@@ -37,7 +42,7 @@
         /**
          * _path
          * 
-         * @var string
+         * @var    string
          * @access protected
          */
         protected $_path;
@@ -45,7 +50,7 @@
         /**
          * _resource
          * 
-         * @var resource
+         * @var    resource
          * @access protected
          */
         protected $_resource;
@@ -53,16 +58,16 @@
         /**
          * _type
          * 
-         * @var string
+         * @var    string
          * @access protected
          */
         protected $_type;
 
         /**
-         * __construct function.
+         * __construct
          * 
          * @access public
-         * @param string $path path to a local file
+         * @param  string $path path to a local file
          * @return void
          */
         public function __construct($path)
@@ -77,7 +82,7 @@
         }
 
         /**
-         * __destruct function.
+         * __destruct
          * 
          * @access public
          * @return void
@@ -88,7 +93,7 @@
         }
 
         /**
-         * _getFileType function.
+         * _getFileType
          * 
          * @access protected
          * @return string
@@ -101,7 +106,7 @@
         }
 
         /**
-         * _loadResource function.
+         * _loadResource
          * 
          * @access protected
          * @return void
@@ -126,7 +131,7 @@
         }
 
         /**
-         * getResizer function.
+         * getResizer
          * 
          * @access public
          * @return JPEGResizer
@@ -137,7 +142,7 @@
         }
 
         /**
-         * getType function.
+         * getType
          * 
          * @access public
          * @return string
@@ -148,11 +153,13 @@
         }
 
         /**
-         * resize function. Resizes the instantiated image to have a maximum
-         *     width/height as passed.
+         * resize
+         * 
+         * Resizes the instantiated image to have a maximum width/height as
+         * passed.
          * 
          * @access public
-         * @param int $max
+         * @param  integer $max
          * @return string
          */
         public function resize($max)
@@ -161,12 +168,14 @@
         }
 
         /**
-         * square function. Crops the instantiated image to have either a width
-         *     or height (whichever is smaller) to have a value of <$pixels>.
-         *     The opposite dimension is scaled and cropped appropriately.
+         * square
+         * 
+         * Crops the instantiated image to have either a width or height
+         * (whichever is smaller) to have a value of <$pixels>. The opposite
+         * dimension is scaled and cropped appropriately.
          * 
          * @access public
-         * @param int $pixels
+         * @param  integer $pixels
          * @return string
          */
         public function square($pixels)
