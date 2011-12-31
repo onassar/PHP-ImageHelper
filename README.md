@@ -14,7 +14,7 @@ It assumes that the value the image is being resized to (when calling an
 **Image** instance&#039;s **resize** method, an integer must be passed) ought to
 be the maximum dimension.
 
-For example, if an image is is 440x580, and it resized with a value of 200
+For example, if an image is is 440x580, and it is resized with a value of 200
 passed, the higher dimension of the two (580) is what is used as a base, with
 it&#039;s new calculated dimension being 151.7x200.
 
