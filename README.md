@@ -22,7 +22,8 @@ it&#039;s new calculated dimension being 151.7x200.
 I refer to squaring as the act of taking an image (eg. 440x580) and creating a
 square version of it of ideal dimensions. If I were to square the 440x550 image
 referenced to a size of 100, it&#039;s dimensions would be 100x100, with
-31.81 pixels cropped equally from the top and bottom of the image.
+31.81 pixels cropped cumutatively (but equally) from the top and bottom of the
+image.
 
 The reason for this is that when this image is resized to a maximum dimension of
 100 pixels for it&#039;s lowest value (eg. it#039;s width or height), it#039;s
