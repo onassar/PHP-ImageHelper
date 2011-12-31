@@ -6,7 +6,7 @@ in the generation of two types of images: **resized** and
 
 The reason for the large number of files for a fundamentally straightforward
 process was to decouple all the different implementation threads going on (eg.
-file types, resizing engines, manipulation types).
+file types, manipulation engines, manipulation types).
 
 ### Resizing
 The resizing of an image, quite simply, scales an image down to a desired size.
