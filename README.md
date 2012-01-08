@@ -35,6 +35,9 @@ version of the image, of the desired dimensions.
 
 ### Squaring Example
 
+``` php
+<?php
+
     // library inclusion
     require_once APP . '/vendors/PHP-ImageHelper/Image.class.php';
     
@@ -45,3 +48,5 @@ version of the image, of the desired dimensions.
     header('Content-Type: image/jpeg');
     echo $image->square(100);
     exit(0);
+
+```
