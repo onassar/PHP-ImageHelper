@@ -11,8 +11,8 @@ file types, manipulation engines, manipulation types).
 ### Resizing
 The resizing of an image, quite simply, scales an image down to a desired size.
 It assumes that the value the image is being resized to (when calling an
-**Image** instance&#039;s **resize** method, an integer must be passed) ought to
-be the maximum dimension.
+`Image` instance&#039;s `resize` method, an integer must be passed) ought to be
+the maximum dimension.
 
 For example, if an image is is 440x580, and it is resized with a value of 200
 passed, the higher dimension of the two (580) is what is used as a base, with
