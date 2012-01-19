@@ -16,7 +16,7 @@ the maximum dimension.
 
 For example, if an image is is 440x580, and it is resized with a value of 200
 passed, the higher dimension of the two (580) is what is used as a base, with
-it&#039;s new calculated dimension being 151.7x200.
+it&#039;s new calculated dimension being 152x200 (rounded from 151.7).
 
 ### Squaring
 I refer to squaring as the act of taking an image (eg. 440x580) and creating a
