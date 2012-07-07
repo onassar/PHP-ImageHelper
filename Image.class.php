@@ -153,6 +153,19 @@
         }
 
         /**
+         * fit
+         * 
+         * @access public
+         * @param  Integer $width
+         * @param  Integer $height
+         * @return String
+         */
+        public function fit($width, $height)
+        {
+            return $this->_resource->fit($width, $height);
+        }
+
+        /**
          * maximum
          * 
          * Resizes the instantiated image to have a maximum width/height as

@@ -74,6 +74,68 @@
         }
 
         /**
+         * fit
+         * 
+         * 
+         * 
+         * @access public
+         * @param  Integer $width
+         * @param  Integer $height
+         * @return String
+         */
+        public function fit($width, $height)
+        {
+            // get largest dimension
+            $max = max($width, $height);
+
+            // get maximum blob
+            $blob = $this->maximum($max);
+            $dimensions = $this->_resource->getImageGeometry();
+
+            // boot cropper
+            $class = get_class($this);
+            $type = strstr($class, 'Resizer', true);
+            $cropper = ($type) . 'Cropper';
+            require_once ($cropper) . '.class.php';
+
+            // if the width should be cropped
+            if ($dimensions['height'] > $height) {
+
+                // set x/y
+                $x = 0;
+                $half = round($height / 2);
+                $y = $half; 
+            } else {
+
+                // set x/y
+                $y = 0;
+                $half = round($width / 2);
+                $x = $half;
+            }
+
+            // return cropped image
+            $this->_cropper = (new $cropper($blob, true));
+            return $this->_cropper->crop($width, $height, $x, $y);
+        }
+
+        /**
+         * maximum
+         * 
+         * Resizes an image to be a maximum number of pixels wide/high.
+         * 
+         * @access public
+         * @param  integer $max
+         * @return string
+         */
+        public function maximum($max)
+        {
+            $dimensions = $this->_resource->getImageGeometry();
+            $max = min($max, max($dimensions['width'], $dimensions['height']));
+            $this->_resource->scaleImage($max, $max, true);
+            return $this->_resource->getImageBlob();
+        }
+
+        /**
          * minimum
          * 
          * Resizes an image to be a minimum number of pixels wide/high.
@@ -97,23 +159,6 @@
         }
 
         /**
-         * maximum
-         * 
-         * Resizes an image to be a maximum number of pixels wide/high.
-         * 
-         * @access public
-         * @param  integer $max
-         * @return string
-         */
-        public function maximum($max)
-        {
-            $dimensions = $this->_resource->getImageGeometry();
-            $max = min($max, max($dimensions['width'], $dimensions['height']));
-            $this->_resource->scaleImage($max, $max, true);
-            return $this->_resource->getImageBlob();
-        }
-
-        /**
          * square
          * 
          * Produces a square image that is resized to be a maximum width/height
@@ -126,7 +171,6 @@
          */
         public function square($pixels)
         {
-
             // boot cropper
             $class = get_class($this);
             $type = strstr($class, 'Resizer', true);
