@@ -74,7 +74,30 @@
         }
 
         /**
-         * resize
+         * minimum
+         * 
+         * Resizes an image to be a minimum number of pixels wide/high.
+         * 
+         * @access public
+         * @param  Integer $min
+         * @return String
+         */
+        public function minimum($min)
+        {
+            $dimensions = $this->_resource->getImageGeometry();
+            $min = $min * (
+                (
+                    max($dimensions['width'], $dimensions['height']) /
+                    min($dimensions['width'], $dimensions['height'])
+                )
+            );
+            $min = round($min);
+            $this->_resource->scaleImage($min, $min, true);
+            return $this->_resource->getImageBlob();
+        }
+
+        /**
+         * maximum
          * 
          * Resizes an image to be a maximum number of pixels wide/high.
          * 
@@ -82,7 +105,7 @@
          * @param  integer $max
          * @return string
          */
-        public function resize($max)
+        public function maximum($max)
         {
             $dimensions = $this->_resource->getImageGeometry();
             $max = min($max, max($dimensions['width'], $dimensions['height']));
@@ -120,7 +143,7 @@
             $max = ceil($ratio * $pixels);
 
             // resize; crop
-            $blob = $this->resize($max);
+            $blob = $this->maximum($max);
 
             $this->_cropper = (new $cropper($blob, true));
             return $this->_cropper->square($pixels);

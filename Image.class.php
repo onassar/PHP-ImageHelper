@@ -153,7 +153,7 @@
         }
 
         /**
-         * resize
+         * maximum
          * 
          * Resizes the instantiated image to have a maximum width/height as
          * passed.
@@ -162,9 +162,24 @@
          * @param  integer $max
          * @return string
          */
-        public function resize($max)
+        public function maximum($max)
         {
-            return $this->_resource->resize($max);
+            return $this->_resource->maximum($max);
+        }
+
+        /**
+         * minimum
+         * 
+         * Resizes the instantiated image to have a minimum width/height as
+         * passed.
+         * 
+         * @access public
+         * @param  Integer $min
+         * @return String
+         */
+        public function minimum($min)
+        {
+            return $this->_resource->minimum($min);
         }
 
         /**
