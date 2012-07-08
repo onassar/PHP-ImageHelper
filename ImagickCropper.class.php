@@ -110,4 +110,17 @@
                 $coordinates['y']
             );
         }
+
+        /**
+         * trim
+         * 
+         * @access public
+         * @param  Integer $width
+         * @param  Integer $height
+         * @return String
+         */
+        public function trim($width, $height)
+        {
+            
+        }
     }

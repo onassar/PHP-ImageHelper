@@ -85,11 +85,7 @@
          */
         public function fit($width, $height)
         {
-            // get largest dimension
-            $max = max($width, $height);
-
-            // get maximum blob
-            $blob = $this->maximum($max);
+            // get source dimensions
             $dimensions = $this->_resource->getImageGeometry();
 
             // boot cropper
@@ -98,19 +94,28 @@
             $cropper = ($type) . 'Cropper';
             require_once ($cropper) . '.class.php';
 
-            // if the width should be cropped
-            if ($dimensions['height'] > $height) {
+            // landscape-oriented
+            if ($width > $height) {
+
+                // get minimum blob
+                $dimension = max($width, $height);
+prx($dimension);
+                $blob = $this->minimum($dimension);
 
                 // set x/y
+                $y = round($height / 2);
                 $x = 0;
-                $half = round($height / 2);
-                $y = $half; 
-            } else {
+            }
+            // portrait-oriented
+            else {
+
+                // get minimum blob
+                $dimension = max($width, $height);
+                $blob = $this->maximum($dimension);
 
                 // set x/y
-                $y = 0;
-                $half = round($width / 2);
-                $x = $half;
+                $y = round($height / 2);
+                $x = 0;
             }
 
             // return cropped image
