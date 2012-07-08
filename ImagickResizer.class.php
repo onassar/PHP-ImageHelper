@@ -50,33 +50,11 @@
         }
 
         /**
-         * getCropper
-         * 
-         * Returns the cropper (if any) used to square an image.
-         * 
-         * @access public
-         * @return ImagickCropper
-         */
-        public function getCropper()
-        {
-            return $this->_cropper;
-        }
-
-        /**
-         * getResource
-         * 
-         * @access public
-         * @return Imagick
-         */
-        public function getResource()
-        {
-            return $this->_resource;
-        }
-
-        /**
          * fit
          * 
-         * 
+         * Resizes the resouce to fit specified dimensions, having both the 
+         * width and height meet the respective values, with any excess (in 
+         * either dimension) cut (cropped/trimmed) off.
          * 
          * @access public
          * @param  Integer $width
@@ -126,34 +104,30 @@
             // return trimmed image
             $this->_cropper = (new $cropper($blob, true));
             return $this->_cropper->trim($width, $height);
+        }
 
-            // landscape-oriented
-            if ($width > $height) {
+        /**
+         * getCropper
+         * 
+         * Returns the cropper (if any) used to square an image.
+         * 
+         * @access public
+         * @return ImagickCropper
+         */
+        public function getCropper()
+        {
+            return $this->_cropper;
+        }
 
-                // get minimum blob
-                $dimension = max($width, $height);
-prx($dimension);
-                $blob = $this->minimum($dimension);
-
-                // set x/y
-                $y = round($height / 2);
-                $x = 0;
-            }
-            // portrait-oriented
-            else {
-
-                // get minimum blob
-                $dimension = max($width, $height);
-                $blob = $this->maximum($dimension);
-
-                // set x/y
-                $y = round($height / 2);
-                $x = 0;
-            }
-
-            // return cropped image
-            $this->_cropper = (new $cropper($blob, true));
-            return $this->_cropper->crop($width, $height, $x, $y);
+        /**
+         * getResource
+         * 
+         * @access public
+         * @return Imagick
+         */
+        public function getResource()
+        {
+            return $this->_resource;
         }
 
         /**
