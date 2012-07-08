@@ -85,14 +85,47 @@
          */
         public function fit($width, $height)
         {
-            // get source dimensions
+            /**
+             * It's been known to happe that the <width> and <height> arguments
+             * get passed in as a string. Cast as integer. This became a problem
+             * in the <ImagickCropper> instance
+             */
+
+            // cast
+            $width = (int) $width;
+            $height = (int) $height;
+
+            // get source dimensions; evaluate ratios
             $dimensions = $this->_resource->getImageGeometry();
+            $source = $dimensions['width'] / $dimensions['height'];
+            $fit = $width / $height;
+            $dimension = max($width, $height);
+
+            // if the image ought to be resized to a maximum dimension
+            if (
+                ($source > 1 && $fit > 1)
+                || ($source < 1 && $fit < 1)
+            ) {
+
+                // resize it
+                $blob = $this->maximum($dimension);
+            }
+            // otherwise, resize the image to a minimum dimension
+            else {
+
+                // resize it
+                $blob = $this->minimum($dimension);
+            }
 
             // boot cropper
             $class = get_class($this);
             $type = strstr($class, 'Resizer', true);
             $cropper = ($type) . 'Cropper';
             require_once ($cropper) . '.class.php';
+
+            // return trimmed image
+            $this->_cropper = (new $cropper($blob, true));
+            return $this->_cropper->trim($width, $height);
 
             // landscape-oriented
             if ($width > $height) {

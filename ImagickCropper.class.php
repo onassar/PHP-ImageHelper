@@ -114,6 +114,9 @@
         /**
          * trim
          * 
+         * Returns an raw image data whereby it's edges have been trimmed to fit
+         * the given dimensions.
+         * 
          * @access public
          * @param  Integer $width
          * @param  Integer $height
@@ -121,6 +124,15 @@
          */
         public function trim($width, $height)
         {
-            
+            // determine cut-off positions/coordinates for image
+            $coordinates = $this->_getTrimCoordinates($width, $height);
+
+            // return the trimmed (aka. cropped) resource/data
+            return $this->crop(
+                $width,
+                $height,
+                $coordinates['x'],
+                $coordinates['y']
+            );
         }
     }
