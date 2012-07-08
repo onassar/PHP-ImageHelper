@@ -91,48 +91,8 @@
                 );
             }
 
-            // grab dimensions
-            $dimensions = $this->_resource->getImageGeometry();
-            $pixels = $this->getSquarePixels($pixels, $dimensions);
-
-            // grab centering coordinates
-            $coordinates = $this->getSquareCoordinates(
-                $dimensions['width'],
-                $dimensions['height'],
-                $pixels
-            );
-
-            // make square crop
-            return $this->crop(
-                $pixels,
-                $pixels,
-                $coordinates['x'],
-                $coordinates['y']
-            );
-        }
-
-        /**
-         * trim
-         * 
-         * Returns an raw image data whereby it's edges have been trimmed to fit
-         * the given dimensions.
-         * 
-         * @access public
-         * @param  Integer $width
-         * @param  Integer $height
-         * @return String
-         */
-        public function trim($width, $height)
-        {
-            // determine cut-off positions/coordinates for image
-            $coordinates = $this->_getTrimCoordinates($width, $height);
-
-            // return the trimmed (aka. cropped) resource/data
-            return $this->crop(
-                $width,
-                $height,
-                $coordinates['x'],
-                $coordinates['y']
-            );
+            // attempting to simplify the process
+            $this->_resource->cropThumbnailImage($pixels, $pixels);
+            return $this->_resource->getImageBlob();
         }
     }
